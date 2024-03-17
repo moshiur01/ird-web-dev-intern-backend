@@ -10,9 +10,9 @@ app.use(express.json());
 
 const db = new sqlite3.Database("./dua_main.sqlite");
 
-// Route to get all data
+// Route to get all category
 app.get("/category", (req, res) => {
-  const sql = "SELECT * FROM category"; // Replace 'your_table_name' with your actual table name
+  const sql = "SELECT * FROM category";
 
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -81,7 +81,6 @@ app.get("/specific-sub-category/:categoryId", (req, res) => {
   });
 });
 
-//get duas of a single category
 // Route to get duas for a specific category and subcategory
 app.get("/duas/:categoryId", (req, res) => {
   const categoryId = req.params.categoryId;
@@ -100,9 +99,9 @@ app.get("/duas/:categoryId", (req, res) => {
   });
 });
 
-// Route to get all data
+// Route to get all duas
 app.get("/duas", (req, res) => {
-  const sql = "SELECT * FROM dua"; // Replace 'your_table_name' with your actual table name
+  const sql = "SELECT * FROM dua";
 
   db.all(sql, [], (err, rows) => {
     if (err) {
